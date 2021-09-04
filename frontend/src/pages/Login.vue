@@ -92,7 +92,8 @@ export default {
         })
         .catch(error => {
           this.error = true;
-          console.log(error);
+          if(error.response.data.msg)
+          this.message = error.response.data.msg;
         });
     },
     gotoRegister() {
