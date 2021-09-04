@@ -1,0 +1,12 @@
+{
+  "name": "ifca-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Shahfiq Shah <shahfiq12@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0"
+  }
+}
