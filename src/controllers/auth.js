@@ -35,7 +35,7 @@ const login = (req,res) => {
     if (error) return res.status(400).send({msg:error.details[0].message});
 
     const validation = validatePassword(req.body);
-    if (!validation) return res.send("Email or password is incorrect");
+    if (!validation) return res.status(400).send({msg:"Email or password is incorrect."});
     
     res.send(true);
 }
@@ -45,7 +45,7 @@ const register = (req,res)=>{
     if (error) return res.status(400).send({msg:error.details[0].message});
 
     const user = users.find((e)=>e.email==req.body.email);
-    if (user) return res.send("Email already use");
+    if (user) return res.send({msg:"Email already use"});
     
     users.push({
         id:users.length+1,

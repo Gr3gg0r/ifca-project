@@ -9,7 +9,7 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
-app.use(express.static(__dirname + '/public/dist/spa'));
+app.use(express.static(__dirname + '/public/spa'));
 
 app.use('/api/auth',auth);
 
