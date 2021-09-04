@@ -47,6 +47,13 @@
         </div>
       </q-card-section>
     </q-card>
+    <q-dialog v-model="dialog" position="bottom">
+      <q-card style="width: 350px">
+        <q-card-section class="row items-center no-wrap">
+         <div class="text-body text-center">Account Created!</div>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -63,7 +70,8 @@ export default {
       },
       isPwd: true,
       error: false,
-      message: ""
+      message: "",
+      dialog: true
     };
   },
   validations: {
@@ -85,7 +93,8 @@ export default {
         })
         .then(res => {
           if (res.data) {
-            this.$router.push({ path: "/auth" });
+            this.dialog = true;
+            this.this.$router.push({ path: "/auth" });
           }
         })
         .catch(error => {

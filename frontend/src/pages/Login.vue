@@ -91,13 +91,11 @@ export default {
           }
         })
         .catch(error => {
-          console.log(error.response.data);
           this.error = true;
           this.message = error.response.data.msg;
         });
     },
     gotoRegister() {
-      console.log("click");
       this.$router.push({ path: "/auth/register" });
     }
   }
