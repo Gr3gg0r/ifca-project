@@ -71,7 +71,7 @@ export default {
       isPwd: true,
       error: false,
       message: "",
-      dialog: true
+      dialog: false
     };
   },
   validations: {
