@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Shahfiq Shah <shahfiq12@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start" : "node ./src/index.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
