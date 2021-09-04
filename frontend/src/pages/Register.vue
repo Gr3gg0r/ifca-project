@@ -36,7 +36,7 @@
             class="q-mt-md q-mb-lg"
             color="primary"
             type="submit"
-            label="Sign In"
+            label="Register"
           />
         </form>
       </q-card-section>
@@ -47,13 +47,6 @@
         </div>
       </q-card-section>
     </q-card>
-    <q-dialog v-model="dialog" position="bottom">
-      <q-card style="width: 350px">
-        <q-card-section class="row items-center no-wrap">
-         <div class="text-body text-center">Account Created!</div>
-        </q-card-section>
-      </q-card>
-    </q-dialog>
   </q-page>
 </template>
 
@@ -70,8 +63,7 @@ export default {
       },
       isPwd: true,
       error: false,
-      message: "",
-      dialog: false
+      message: ""
     };
   },
   validations: {
@@ -92,19 +84,22 @@ export default {
           password: this.form.password
         })
         .then(res => {
+          console.log(res);
           if (res.data) {
-            this.dialog = true;
-            this.this.$router.push({ path: "/auth" });
+            this.$router.push({ path: "/auth" });
+            this.$q.notify({
+              message: "Account registered successfully!",
+              color: "blue"
+            });
           }
         })
         .catch(error => {
-          console.log(error.response.data);
           this.error = true;
+          if(error.response.data.msg)
           this.message = error.response.data.msg;
         });
     },
-    gotoLogin() {
-      console.log("click");
+    gotoRegister() {
       this.$router.push({ path: "/auth" });
     }
   }

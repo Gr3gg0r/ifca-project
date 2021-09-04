@@ -85,14 +85,14 @@ export default {
           password: this.form.password
         })
         .then(res => {
-          if (res.data) {
+          if (res) {
             setStatus("ifca_authentication", true);
             this.$router.push({ path: "/" });
           }
         })
         .catch(error => {
           this.error = true;
-          this.message = error.response.data.msg;
+          console.log(error);
         });
     },
     gotoRegister() {

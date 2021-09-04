@@ -45,7 +45,7 @@ const register = (req,res)=>{
     if (error) return res.status(400).send({msg:error.details[0].message});
 
     const user = users.find((e)=>e.email==req.body.email);
-    if (user) return res.send({msg:"Email already use"});
+    if (user) return res.status(400).send({msg:"Email already use"});
     
     users.push({
         id:users.length+1,
